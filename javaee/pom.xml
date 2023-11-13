@@ -32,6 +32,7 @@
 		</dependency>
 	</dependencies>
 
+	<!-- külön edikált wildfly server-rel elindítva csak ez a plugin részlet kell, hogy menjen a deploy: mvn wildfly:deploy, vagy mvn wildfly:deploy-only -->
 	<!--<build>
 		<finalName>javaee</finalName>
 		<plugins>
@@ -69,6 +70,8 @@
 					</server>
 				  </servers>
 				</settings>
+				
+		3. mvn tomcat7:deploy
 	-->
 	<!--
 	<build>
