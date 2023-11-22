@@ -2,7 +2,6 @@ package com.andro.rest;
 
 import java.time.LocalDate;
 
-import javax.ejb.EJB;
 import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -10,7 +9,6 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-
 import com.andro.entity.Car;
 import com.andro.entity.Fuel;
 import com.andro.service.Service;
@@ -21,7 +19,6 @@ import com.fasterxml.jackson.databind.ObjectWriter;
 @Path("/test")
 public class Test {
 	
-	//HIBA
 	@Inject
 	private Service service;
 	
