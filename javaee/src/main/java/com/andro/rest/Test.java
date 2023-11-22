@@ -21,6 +21,7 @@ import com.fasterxml.jackson.databind.ObjectWriter;
 @Path("/test")
 public class Test {
 	
+	//HIBA
 	@Inject
 	private Service service;
 	
