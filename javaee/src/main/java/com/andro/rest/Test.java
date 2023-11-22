@@ -2,6 +2,8 @@ package com.andro.rest;
 
 import java.time.LocalDate;
 
+import javax.ejb.EJB;
+import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -11,12 +13,17 @@ import javax.ws.rs.core.MediaType;
 
 import com.andro.entity.Car;
 import com.andro.entity.Fuel;
+import com.andro.service.Service;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 
 @Path("/test")
 public class Test {
+	
+	@Inject
+	private Service service;
+	
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public String test() {
@@ -46,5 +53,15 @@ public class Test {
     	
     	return car.toString();
     }
+    
+    @GET
+    @Path("/allcar")
+    @Produces(MediaType.TEXT_PLAIN)
+    public String getAllCar() {
+    	//EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("persistence");
+		//EntityManager entityManager = entityManagerFactory.createEntityManager();
+    	return this.service.getService();
+    }
 }
+
 

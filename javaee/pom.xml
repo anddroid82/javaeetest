@@ -30,9 +30,26 @@
 			<artifactId>jackson-databind</artifactId>
 			<version>2.12.3</version>
 		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>6.0.5</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>5.2.6.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>5.2.6.Final</version>
+		</dependency>
+
 	</dependencies>
 
-	<!-- külön edikált wildfly server-rel elindítva csak ez a plugin részlet kell, hogy menjen a deploy: mvn wildfly:deploy, vagy mvn wildfly:deploy-only -->
+	<!-- külön edikált wildfly server-rel elindítva csak ez a plugin részlet
+	kell, hogy menjen a deploy: mvn wildfly:deploy, vagy mvn wildfly:deploy-only -->
 	<!--<build>
 		<finalName>javaee</finalName>
 		<plugins>
@@ -43,7 +60,7 @@
 			</plugin>
 		</plugins>
 	</build>-->
-	
+
 	<!--
 		külön dedikált tomcat7-re működik a plugin:
 		1. a tomcat-users.xml-be fel kell venni:
@@ -58,10 +75,14 @@
 			
 			<user password="tomcat" roles="tomcat" username="tomcat"/>
 			<user password="admin" roles="manager-gui" username="admin"/>
-			<user password="pass@word1" roles="admin,admin-script,manager-gui,manager-script,manager-jmx,manager-status" username="mavenuser"/>
+			<user password="pass@word1"
+	roles="admin,admin-script,manager-gui,manager-script,manager-jmx,manager-status"
+	username="mavenuser"/>
 		2. a maven settings.xml-be:
-		    <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-				  xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 https://maven.apache.org/xsd/settings-1.0.0.xsd">
+		    <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+				  xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
+	https://maven.apache.org/xsd/settings-1.0.0.xsd">
 				  <servers>
 					<server>
 				    <id>your_server</id>
@@ -73,7 +94,7 @@
 				
 		3. mvn tomcat7:deploy
 	-->
-	<!--
+
 	<build>
 		<plugins>
 			<plugin>
@@ -90,5 +111,5 @@
 			</plugin>
 		</plugins>
 	</build>
-	-->
+
 </project>
