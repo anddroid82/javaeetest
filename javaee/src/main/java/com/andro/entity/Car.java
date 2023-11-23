@@ -6,6 +6,7 @@ public class Car {
 	private String type;
 	private Fuel fuel;
 	private int year;
+	
 	public Car(Long id, String brand, String type, Fuel fuel, int year) {
 		super();
 		this.id = id;

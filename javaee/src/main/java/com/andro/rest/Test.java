@@ -9,6 +9,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+
 import com.andro.entity.Car;
 import com.andro.entity.Fuel;
 import com.andro.service.Service;
@@ -58,7 +59,7 @@ public class Test {
     public String getAllCar() {
     	//EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("persistence");
 		//EntityManager entityManager = entityManagerFactory.createEntityManager();
-    	return this.service.getService();
+    	return "greet8: "+this.service.getService();
     }
 }
 
