@@ -1,50 +1,45 @@
 package com.andro.service;
 
-import javax.annotation.PostConstruct;
-import javax.annotation.PreDestroy;
-import javax.ejb.Stateful;
-import javax.enterprise.context.ApplicationScoped;
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import javax.transaction.Transactional;
+import javax.persistence.PersistenceContext;
 
 import com.andro.entity.Employee;
 
-@Stateful
-@ApplicationScoped
+@Stateless
 public class ServiceImpl implements Service {
 	
-	private EntityManagerFactory entityManagerFactory;
-	private EntityManager entityManager;
+	//private EntityManagerFactory entityManagerFactory;
+	@PersistenceContext(unitName = "persistence")
+	EntityManager entityManager;
 	
-	@PostConstruct
+	/*@PostConstruct
 	public void postConstruct() {
 		this.entityManagerFactory = Persistence.createEntityManagerFactory("persistence");
 		this.entityManager = entityManagerFactory.createEntityManager();
-	}
+	}*/
 	
-	@Transactional
+	//@Transactional
 	public String getService() {
 		
 		//EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("persistence");
 		//EntityManager entityManager = entityManagerFactory.createEntityManager();
-		entityManager.getTransaction().begin();
+		//entityManager.getTransaction().begin();
 		
 		Employee employee = new Employee();
 		employee.setName("Pankaj");
 		
 		entityManager.persist(employee);
-		entityManager.getTransaction().commit();
 		
+		//entityManager.getTransaction().commit();
 		
 		return "Hello Andro!";
 	}
 	
-	@PreDestroy
+	/*@PreDestroy
 	public void preDestroy() {
 		entityManager.close();
 		this.entityManagerFactory.close();
-	}
+	}*/
 	
 }
